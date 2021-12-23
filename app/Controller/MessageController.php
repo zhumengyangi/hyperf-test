@@ -21,6 +21,9 @@ class MessageController extends Controller
     #[Inject]
     protected MessageService $service;
 
+    /**
+     * 列表.
+     */
     public function index(PaginationRequest $page)
     {
         $params = $this->request->all();
@@ -32,6 +35,9 @@ class MessageController extends Controller
         ]);
     }
 
+    /**
+     * 保存.
+     */
     public function save(int $id, MessageSaveRequest $request)
     {
         $result = $this->service->save($id, $request->all());
@@ -41,6 +47,9 @@ class MessageController extends Controller
         ]);
     }
 
+    /**
+     * 删除.
+     */
     public function delete(int $id)
     {
         $result = $this->service->delete($id);

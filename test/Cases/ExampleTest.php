@@ -11,10 +11,6 @@ declare(strict_types=1);
  */
 namespace HyperfTest\Cases;
 
-use App\Kernel\Context\Coroutine;
-use App\Kernel\Log\AppendRequestIdProcessor;
-use Hyperf\Engine\Channel;
-use Hyperf\Utils\Context;
 use HyperfTest\HttpTestCase;
 
 /**
@@ -26,6 +22,5 @@ class ExampleTest extends HttpTestCase
     public function testExample()
     {
         $this->assertTrue(true);
-
     }
 }
