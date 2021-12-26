@@ -25,5 +25,5 @@ class ErrorCode extends AbstractConstants
     /**
      * @Message("该记录不存在")
      */
-    public const MESSAGE_NOT_EXITS = 1001;
+    public const TXT_NOT_EXITS = 1000;
 }

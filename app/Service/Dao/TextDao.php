@@ -13,14 +13,14 @@ namespace App\Service\Dao;
 
 use App\Constants\ErrorCode;
 use App\Exception\BusinessException;
-use App\Model\Message;
+use App\Model\Text;
 use Han\Utils\Service;
 
-class MessageDao extends Service
+class TextDao extends Service
 {
-    public function first(int $id, bool $throw = false): Message
+    public function first(int $id, bool $throw = false): Text
     {
-        $model = Message::findFromCache($id);
+        $model = Text::findFromCache($id);
         if ($throw && empty($model)) {
             throw new BusinessException(ErrorCode::TXT_NOT_EXITS);
         }
@@ -29,7 +29,11 @@ class MessageDao extends Service
 
     public function search(array $input, int $offset, int $limit): array
     {
-        $query = Message::query();
+        $query = Text::query();
+        if (isset($input['id']) && ! empty($input['id'])) {
+            $query->where('id', $input['id']);
+        }
+
         if (isset($input['title']) && ! empty($input['title'])) {
             $query->where('title', 'like', '%' . $input['title'] . '%');
         }
