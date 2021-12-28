@@ -21,7 +21,7 @@ class TextTest extends HttpTestCase
 {
     public function testTextIndex()
     {
-        $result = $this->get('/text',[
+        $result = $this->get('/text', [
             'title' => '2',
         ]);
         $this->assertSame($result['status'], 'success');

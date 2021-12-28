@@ -18,3 +18,7 @@ Router::post('/message/delete/{id:\d+}', App\Controller\MessageController::class
 Router::get('/text', App\Controller\TextController::class . '::index');
 Router::post('/text/save/{id:\d+}', App\Controller\TextController::class . '::save');
 Router::post('/text/delete/{id:\d+}', App\Controller\TextController::class . '::del');
+
+Router::get('/tag', App\Controller\TagController::class . '::index');
+Router::post('/tag/save/{id:\d+}', App\Controller\TagController::class . '::save');
+Router::post('/tag/delete/{id:\d+}', App\Controller\TagCOntroller::class . '::del');
