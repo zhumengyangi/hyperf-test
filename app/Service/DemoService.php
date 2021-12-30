@@ -34,7 +34,7 @@ class DemoService extends Service
 
     public function save(int $id, array $input): bool
     {
-        if (empty($id)) {
+        if ($id <= 0) {
             $model = new Demo();
         } else {
             $model = $this->dao->first($id, true);

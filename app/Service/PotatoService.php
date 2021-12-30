@@ -11,38 +11,36 @@ declare(strict_types=1);
  */
 namespace App\Service;
 
-use App\Model\Tag;
-use App\Service\Dao\TagDao;
-use App\Service\Formatter\TagFormatter;
+use App\Model\Potato;
+use App\Service\Dao\PotatoDao;
+use App\Service\Formatter\PotatoFormatter;
 use Han\Utils\Service;
 use Hyperf\Di\Annotation\Inject;
 
-class TagService extends Service
+class PotatoService extends Service
 {
     #[Inject]
-    protected TagDao $dao;
+    protected PotatoDao $dao;
 
     #[Inject]
-    protected TagFormatter $formatter;
+    protected PotatoFormatter $formatter;
 
     public function search(array $input, int $offset, int $limit): array
     {
         [$count, $result] = $this->dao->search($input, $offset, $limit);
         $result = $this->formatter->formatList($result);
-
         return [$count, $result];
     }
 
     public function save(int $id, array $input): bool
     {
-        if ($id <= 0) {
-            $model = new Tag();
-        } else {
+        if ($id > 0) {
             $model = $this->dao->first($id, true);
+        } else {
+            $model = new Potato();
         }
         $model->title = $input['title'];
         $model->content = $input['content'];
-
         return $model->save();
     }
 

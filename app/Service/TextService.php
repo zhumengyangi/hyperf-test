@@ -35,7 +35,7 @@ class TextService extends Service
 
     public function save(int $id, array $input): bool
     {
-        if (empty($id)) {
+        if ($id <= 0) {
             $model = new Text();
         } else {
             $model = $this->dao->first($id);

@@ -26,3 +26,7 @@ Router::post('/tag/delete/{id:\d+}', App\Controller\TagController::class . '::de
 Router::get('/demo', App\Controller\DemoController::class . '::index');
 Router::post('/demo/save/{id:\d+}', App\Controller\DemoController::class . '::save');
 Router::post('/demo/delete/{id:\d+}', App\Controller\DemoController::class . '::del');
+
+Router::get('/potato', App\Controller\PotatoController::class . '::index');
+Router::post('/potato/save/{id:\d+}', App\Controller\PotatoController::class . '::save');
+Router::post('/potato/del/{id:\d+}', App\Controller\PotatoController::class. '::del');
