@@ -17,27 +17,28 @@ use HyperfTest\HttpTestCase;
  * @internal
  * @coversNothing
  */
-class TagTest extends HttpTestCase
+class DemoTest extends HttpTestCase
 {
-    public function testTagIndex()
+    public function testDemoIndex()
     {
-        $result = $this->get('/tag');
+        $result = $this->get('/demo');
         $this->assertSame($result['status'], 'success');
     }
 
-    public function testTageSave()
+    public function testDemoSave()
     {
-        $result = $this->post('/tag/save/0', [
-            'title' => '222222222222222',
-            'content' => 'test000000001111111111',
+        $result = $this->post('/demo/save/0', [
+            'title' => 'dasdsad',
+            'content' => '内容1111',
         ]);
+
         $this->assertSame($result['status'], 'success');
     }
 
-    public function testTageDel()
+    public function testDemoDel()
     {
-        $result = $this->get('/tag');
-        $result = $this->post('/tag/delete/' . $result['result']['list'][0]['id']);
+        $resultSSS = $this->get('/demo');
+        $result = $this->post('/demo/delete/' . $resultSSS['result']['list'][0]['id']);
         $this->assertSame($result['status'], 'success');
     }
 }
