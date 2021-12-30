@@ -29,4 +29,4 @@ Router::post('/demo/delete/{id:\d+}', App\Controller\DemoController::class . '::
 
 Router::get('/potato', App\Controller\PotatoController::class . '::index');
 Router::post('/potato/save/{id:\d+}', App\Controller\PotatoController::class . '::save');
-Router::post('/potato/del/{id:\d+}', App\Controller\PotatoController::class. '::del');
+Router::post('/potato/del/{id:\d+}', App\Controller\PotatoController::class . '::del');
