@@ -38,3 +38,7 @@ Router::post('/tomato/delete/{id:\d+}', App\Controller\TomatoController::class .
 Router::get('/chili', App\Controller\ChiliController::class . '::index');
 Router::post('/chili/save/{id:\d+}', App\Controller\ChiliController::class . '::save');
 Router::post('/chili/del/{id:\d+}', App\Controller\ChiliController::class . '::del');
+
+Router::get('/book', App\Controller\BookController::class . '::index');
+Router::post('/book/save/{id:\d+}', App\Controller\BookController::class . '::save');
+Router::post('/book/status/{id:\d+}', App\Controller\BookController::class . '::status');

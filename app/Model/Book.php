@@ -26,6 +26,12 @@ namespace App\Model;
  */
 class Book extends Model
 {
+    // 正常
+    public const STATUS_ONLINE = 1;
+
+    // 删除
+    public const STATUS_OFFLINE = 2;
+
     /**
      * The table associated with the model.
      *

@@ -50,3 +50,22 @@ if (! function_exists('queue_push')) {
         return $driver->push($job, $delay);
     }
 }
+
+if (! function_exists('array_has')) {
+    /**
+     * 数组中是否存在有效的KEY值
+     * @return string
+     */
+    function array_has(array $array, string $key): bool
+    {
+        if (! isset($array[$key])) {
+            return false;
+        }
+
+        if ($array[$key] === '') {
+            return false;
+        }
+
+        return true;
+    }
+}
