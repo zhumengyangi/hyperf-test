@@ -12,9 +12,9 @@ declare(strict_types=1);
 namespace App\Model;
 
 /**
- * @property int $id
- * @property string $title
- * @property string $content
+ * @property int $id id
+ * @property string $title 标题
+ * @property string $content 内容
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  */
