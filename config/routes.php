@@ -45,3 +45,7 @@ Router::post('/book/status/{id:\d+}', App\Controller\BookController::class . '::
 
 Router::get('/user_book', App\Controller\UserBookController::class . '::index');
 Router::post('/user_book/save/{id:\d+}', App\Controller\UserBookController::class . '::save');
+
+Router::get('/pepper', App\Controller\PepperController::class . '::index');
+Router::post('/pepper/save/{id:\d+}', App\Controller\PepperController::class . '::save');
+Router::post('/pepper/del/{id:\d+}', App\Controller\PepperController::class . '::del');
