@@ -24,6 +24,12 @@ namespace App\Model;
  */
 class UserBook extends Model
 {
+    // 借
+    public const STATUS_BORROW = 1;
+
+    // 还
+    public const STATUS_STILL = 2;
+
     /**
      * The table associated with the model.
      *

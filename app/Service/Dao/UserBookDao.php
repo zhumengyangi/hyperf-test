@@ -11,6 +11,8 @@ declare(strict_types=1);
  */
 namespace App\Service\Dao;
 
+use App\Constants\ErrorCode;
+use App\Exception\BusinessException;
 use App\Model\UserBook;
 use Han\Utils\Service;
 
@@ -39,5 +41,14 @@ class UserBookDao extends Service
         $query->orderByDesc('id');
 
         return $this->factory->model->pagination($query, $offset, $limit);
+    }
+
+    public function first(int $id, bool $throw = false)
+    {
+        $model = UserBook::findFromCache($id);
+        if ($throw && empty($model)) {
+            throw new BusinessException(ErrorCode::TXT_NOT_EXITS);
+        }
+        return $model;
     }
 }

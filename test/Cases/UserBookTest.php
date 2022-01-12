@@ -26,4 +26,13 @@ class UserBookTest extends HttpTestCase
         ]);
         $this->assertSame('success', $result['status']);
     }
+
+    public function testUserBookSave()
+    {
+        $result = $this->post('/user_book/save/5', [
+            'user_id' => 1,
+            'book_id' => 5,
+        ]);
+        $this->assertSame('success', $result['status']);
+    }
 }

@@ -41,10 +41,9 @@ class UserBookFormatter extends Service
     public function formatDetail($models)
     {
         $result = [];
-        foreach ($models as $model) {
-            $result[] = $this->base($model);
-//            $model->relationLoaded('book');
-            $result['user'] =$model->book->toArray();
+        foreach ($models as $key => $model) {
+            $result[$key] = $this->base($model);
+            $result[$key]['user'] = $model->book->toArray();
         }
         return $result;
     }

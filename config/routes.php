@@ -44,3 +44,4 @@ Router::post('/book/save/{id:\d+}', App\Controller\BookController::class . '::sa
 Router::post('/book/status/{id:\d+}', App\Controller\BookController::class . '::status');
 
 Router::get('/user_book', App\Controller\UserBookController::class . '::index');
+Router::post('/user_book/save/{id:\d+}', App\Controller\UserBookController::class . '::save');

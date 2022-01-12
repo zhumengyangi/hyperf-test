@@ -31,7 +31,6 @@ class UserBookSaveRequest extends FormRequest
         return [
             'user_id' => 'required|integer',
             'book_id' => 'required|integer',
-            'status' => 'required|in:1,2',
         ];
     }
 }
