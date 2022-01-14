@@ -11,27 +11,28 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Request\FoodSaveRequest;
 use App\Request\PaginationRequest;
-use App\Request\PepperSaveRequest;
-use App\Service\PepperService;
+use App\Service\FoodService;
 use Hyperf\Di\Annotation\Inject;
 
-class PepperController extends Controller
+class FoodController extends Controller
 {
+
     #[Inject]
-    protected PepperService $service;
+    protected FoodService $service;
 
     public function index(PaginationRequest $page)
     {
-        $input = $this->request->all();
-        [$count, $list] = $this->service->search($input, $page->offset(), $page->limit());
+        $params = $this->request->all();
+        [$count, $list] = $this->service->search($params, $page->offset(), $page->limit());
         return $this->response->success([
             'count' => $count,
             'list' => $list,
         ]);
     }
 
-    public function save(int $id, PepperSaveRequest $request)
+    public function save(int $id, FoodSaveRequest $request)
     {
         $result = $this->service->save($id, $request->all());
         return $this->response->success([

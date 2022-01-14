@@ -17,27 +17,27 @@ use HyperfTest\HttpTestCase;
  * @internal
  * @coversNothing
  */
-class PepperTest extends HttpTestCase
+class FoodTest extends HttpTestCase
 {
-    public function testPepperIndex()
+    public function testFoodIndex()
     {
-        $result = $this->get('/pepper');
+        $result = $this->get('/food');
         $this->assertSame('success', $result['status']);
     }
 
-    public function testPepperSave()
+    public function testFoodSave()
     {
-        $result = $this->post('/pepper/save/0', [
-            'title' => 'asdad2e1eefwwefwef',
-            'content' => '内容内容内容内容内容内容内容内容内容内容内容内容',
+        $result = $this->post('/food/save/0', [
+            'title' => 'dasdasdq131',
+            'content' => '14et3rewt3t34',
         ]);
         $this->assertSame('success', $result['status']);
     }
 
-    public function testPepperDel()
+    public function testFoodDel()
     {
-        $result = $this->get('/pepper');
-        $result = $this->post('/pepper/del/' . $result['result']['list'][0]['id']);
+        $result = $this->get('/food');
+        $result = $this->post('/food/del/' . $result['result']['list'][0]['id']);
         $this->assertSame('success', $result['status']);
     }
 }

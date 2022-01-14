@@ -11,12 +11,12 @@ declare(strict_types=1);
  */
 namespace App\Service\Formatter;
 
-use App\Model\Pepper;
+use App\Model\Food;
 use Han\Utils\Service;
 
-class PepperFormatter extends Service
+class FoodFormatter extends Service
 {
-    public function base(Pepper $model): array
+    public function base(Food $model): array
     {
         return [
             'id' => $model->id,
