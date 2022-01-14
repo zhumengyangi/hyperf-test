@@ -51,8 +51,8 @@ Router::post('/pepper/save/{id:\d+}', App\Controller\PepperController::class . '
 Router::post('/pepper/del/{id:\d+}', App\Controller\PepperController::class . '::del');
 
 Router::get('/cucumber', App\Controller\CucumberController::class . '::index');
-Router::get('/cucumber/save/{id:\d+}', App\Controller\CucumberController::class . '::save');
-Router::get('/cucumber/del/{id:\d+}', App\Controller\CucumberController::class . '::del');
+Router::post('/cucumber/save/{id:\d+}', App\Controller\CucumberController::class . '::save');
+Router::post('/cucumber/del/{id:\d+}', App\Controller\CucumberController::class . '::del');
 
 Router::get('/food', App\Controller\FoodController::class . '::index');
 Router::post('/food/save/{id:\d+}', App\Controller\FoodController::class . '::save');

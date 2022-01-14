@@ -11,27 +11,26 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
-use App\Request\FoodSaveRequest;
+use App\Request\CucumberSaveRequest;
 use App\Request\PaginationRequest;
-use App\Service\FoodService;
+use App\Service\CucumberService;
 use Hyperf\Di\Annotation\Inject;
 
-class FoodController extends Controller
+class CucumberController extends Controller
 {
     #[Inject]
-    protected FoodService $service;
+    protected CucumberService $service;
 
     public function index(PaginationRequest $page)
     {
-        $params = $this->request->all();
-        [$count, $list] = $this->service->search($params, $page->offset(), $page->limit());
+        [$count, $list] = $this->service->search($this->request->all(), $page->offset(), $page->limit());
         return $this->response->success([
             'count' => $count,
             'list' => $list,
         ]);
     }
 
-    public function save(int $id, FoodSaveRequest $request)
+    public function save(int $id, CucumberSaveRequest $request)
     {
         $result = $this->service->save($id, $request->all());
         return $this->response->success([
