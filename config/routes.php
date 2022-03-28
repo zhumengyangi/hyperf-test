@@ -57,3 +57,7 @@ Router::post('/cucumber/del/{id:\d+}', App\Controller\CucumberController::class 
 Router::get('/food', App\Controller\FoodController::class . '::index');
 Router::post('/food/save/{id:\d+}', App\Controller\FoodController::class . '::save');
 Router::post('/food/del/{id:\d+}', App\Controller\FoodController::class . '::del');
+
+Router::get('/fruit', App\Controller\FruitController::class . '::index');
+Router::post('/fruit/save/{id:\d+}', App\Controller\FruitController::class . '::save');
+Router::post('/fruit/del/{id:\d+}', App\Controller\FruitController::class . '::del');
